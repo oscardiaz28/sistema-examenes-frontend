@@ -1,0 +1,52 @@
+<div class="bootstrap-wrapper">
+
+    <div class="container flex justify-content-center mt-6 mb-6">
+
+        <div class="surface-card p-4 shadow-2 border-round w-full lg:w-8">
+
+            <div class="text-center mb-5">
+                <div class="text-900 text-3xl font-medium mb-3">Inicia Sesión</div>
+                <span class="text-600 font-medium line-height-3">No tienes cuenta?</span>
+                <a routerLink="/signup" class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Registrate aquí</a>
+            </div>
+
+            <p-messages severity="error" closable="true" class="alertClass" *ngIf="error != null" >
+                <ng-template pTemplate>
+                    {{ error }}
+                </ng-template>
+            </p-messages>
+        
+            <form [formGroup]="form" (ngSubmit)="login()" >
+                <input id="email" formControlName="username" type="text" placeholder="Username" pInputText 
+                class="w-full mb-3">
+
+                <div *ngIf="username.invalid && formSubmitedd" >
+
+                    <p-messages severity="error" closable="true" class="alertClass"  >
+                        <ng-template pTemplate *ngIf="this.form.get('username')?.hasError('required')">
+                            El username es obligatorio
+                        </ng-template>
+                    </p-messages>
+
+                </div>
+
+                <input id="password" formControlName="password" c type="password" placeholder="Password" pInputText class="w-full mb-3">
+
+                <div *ngIf="password.invalid && formSubmitedd ">
+
+                    <p-messages severity="error" closable="true" class="alertClass"  >
+                        <ng-template pTemplate *ngIf="this.form.get('password')?.hasError('required')">
+                            La contraseña es obligatoria
+                        </ng-template>
+                    </p-messages>
+                </div>
+
+                <button type="submit" pButton pRipple [label]=" loading ? 'Iniciando Sesión...' : 'Inicia Sesión' " icon="pi pi-user" class="w-full"
+                [disabled]="loading"
+                ></button>
+            </form>
+        </div>
+        
+    </div>
+
+</div>

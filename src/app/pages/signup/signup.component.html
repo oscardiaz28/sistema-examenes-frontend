@@ -1,0 +1,95 @@
+<div class="bootstrap-wrapper">
+
+    <div class="container flex justify-content-center mt-6 mb-6">
+
+        <div class="surface-card p-4 shadow-2 border-round w-full lg:w-8">
+
+            <div class="text-center mb-5">
+                <div class="text-900 text-3xl font-medium mb-3">Registrate aquí</div>
+                <span class="text-600 font-medium line-height-3">Ya tienes cuenta?</span>
+                <a routerLink="/login" class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Inicia Sesión aquí</a>
+            </div>
+        
+            <form [formGroup]="form" (ngSubmit)="signup()" >
+                <input id="email" formControlName="email" type="email" placeholder="Email" pInputText class="w-full mb-3">
+
+                <div *ngIf="this.form.get('email')?.invalid && formSubmitedd ">
+
+                    <p-messages severity="error" closable="true" class="alertClass"  >
+                        <ng-template pTemplate *ngIf="this.form.get('email')?.hasError('required')">
+                            El email es obligatorio
+                        </ng-template>
+                        <ng-template pTemplate *ngIf="this.form.get('email')?.hasError('email')">
+                            El email es invalido
+                        </ng-template>
+                    </p-messages>
+
+                </div>
+
+                <input id="password" formControlName="password" c type="password" placeholder="Password" pInputText class="w-full mb-3">
+
+                <div *ngIf="this.form.get('password')?.invalid && formSubmitedd ">
+
+                    <p-messages severity="error" closable="true" class="alertClass"  >
+                        <ng-template pTemplate *ngIf="this.form.get('password')?.hasError('required')">
+                            La contraseña es obligatoria
+                        </ng-template>
+                    </p-messages>
+
+                </div>
+
+                <input id="username" formControlName="username" type="text" placeholder="Nombre de Usuario" pInputText class="w-full mb-3">
+
+                <div *ngIf="this.form.get('username')?.invalid && formSubmitedd ">
+
+                    <p-messages severity="error" closable="true" class="alertClass"  >
+                        <ng-template pTemplate *ngIf="this.form.get('username')?.hasError('required')">
+                            El nombre de usuario es obligatorio
+                        </ng-template>
+                    </p-messages>
+
+                </div>
+
+                <input id="nombre" formControlName="nombre" type="text" placeholder="Nombre" pInputText class="w-full mb-3">
+                
+                <div *ngIf="this.form.get('nombre')?.invalid && formSubmitedd ">
+
+                    <p-messages severity="error" closable="true" class="alertClass"  >
+                        <ng-template pTemplate *ngIf="this.form.get('nombre')?.hasError('required')">
+                            El nombre es obligatorio
+                        </ng-template>
+                    </p-messages>
+
+                </div>
+
+                <input id="apellido" formControlName="apellido" type="text" placeholder="Apellidos" pInputText class="w-full mb-3">
+
+                <div *ngIf="this.form.get('apellido')?.invalid && formSubmitedd ">
+
+                    <p-messages severity="error" closable="true" class="alertClass"  >
+                        <ng-template pTemplate *ngIf="this.form.get('apellido')?.hasError('required')">
+                            El apellido es obligatorio
+                        </ng-template>
+                    </p-messages>
+
+                </div>
+
+                <input id="telefono" formControlName="telefono" type="number" placeholder="Teléfono" pInputText class="w-full mb-3">
+
+                <div *ngIf="this.form.get('telefono')?.invalid && formSubmitedd ">
+
+                    <p-messages severity="error" closable="true" class="alertClass"  >
+                        <ng-template pTemplate *ngIf="this.form.get('telefono')?.hasError('required')">
+                            El telefono es obligatorio
+                        </ng-template>
+                    </p-messages>
+
+                </div>
+        
+                <button type="submit" pButton pRipple label="Registrarse" icon="pi pi-user" class="w-full"></button>
+            </form>
+        </div>
+        
+    </div>
+
+</div>

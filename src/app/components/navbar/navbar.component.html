@@ -1,0 +1,16 @@
+<nav class="w-full bg-blue-900">
+    <div class="flex max-w-900 p-3 justify-content-between align-items-center">
+        <a routerLink="" class="no-underline text-white">Portal del Examenes</a>
+        <div class="flex gap-5 align-items-center">
+
+            <a *ngIf="!loginStatus" routerLink="login"  class="no-underline text-white">Iniciar Sesión</a>
+
+            <a *ngIf="!loginStatus" routerLink="signup" class="no-underline text-white">Registrarse</a>
+
+            <a *ngIf="loginStatus" (click)="logout()" class="no-underline text-white cursor-pointer">Cerrar Sesión</a>
+
+            <p *ngIf="loginService.getUser()" class="no-underline text-white">{{ loginService.getUser().username }}</p>
+
+        </div>
+    </div>
+</nav>
