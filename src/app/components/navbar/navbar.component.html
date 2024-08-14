@@ -9,7 +9,7 @@
 
             <a *ngIf="loginStatus" (click)="logout()" class="no-underline text-white cursor-pointer">Cerrar Sesión</a>
 
-            <p *ngIf="loginService.getUser()" class="no-underline text-white">{{ loginService.getUser().username }}</p>
+            <a routerLink="/admin/profile" *ngIf="loginService.getUser()" class="no-underline text-white">{{ loginService.getUser().username }}</a>
 
         </div>
     </div>

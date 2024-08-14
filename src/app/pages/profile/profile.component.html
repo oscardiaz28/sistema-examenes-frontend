@@ -3,22 +3,25 @@
 
     <div class="">
         <div class="w-full mx-auto flex justify-content-center p-2 pb-3">
-            <img src="https://placehold.co/200x200" class="border-circle" alt="">
+            <img src="https://placehold.co/200x200" class="border-circle width-custom" alt="">
         </div>
-        <div>
-            <p class="text-center text-md">John Doe Smith</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre de Usuario</th>
-                        <th>ID</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
-                </tbody>
+        <div class="p-3">
+            <p class="text-center text-md">{{ user.nombre }} {{ user.apellido }}</p>
+            <table class="grid mt-4">
+                <tr class="col-6 p-0 flex flex-column text-center">
+                    <th class="p-1 py-2 border-solid border-gray-300 border-1 border-round-sm" >Nombre de Usuario</th>
+                    <th class="p-1 py-2 border-solid border-gray-300 border-1 border-round-sm" >ID</th>
+                    <th class="p-1 py-2 border-solid border-gray-300 border-1 border-round-sm" >Telefono</th>
+                    <th class="p-1 py-2 border-solid border-gray-300 border-1 border-round-sm" >Rol</th>
+                    <th class="p-1 py-2 border-solid border-gray-300 border-1 border-round-sm" >Estado</th>
+                </tr>
+                <tr class="col-6 p-0 flex flex-column text-center">
+                    <td class="p-1 py-2 border-solid border-gray-300 border-1 border-round-sm" >{{user.username}}</td>
+                    <td class="p-1 py-2 border-solid border-gray-300 border-1 border-round-sm" >0000{{user.id}}</td>
+                    <td class="p-1 py-2 border-solid border-gray-300 border-1 border-round-sm" >{{user.telefono}}</td>
+                    <td class="p-1 py-2 border-solid border-gray-300 border-1 border-round-sm" >{{user.roles}}</td>
+                    <td class="p-1 py-2 border-solid border-gray-300 border-1 border-round-sm" >Activo</td>
+                </tr>
             </table>
         </div>
     </div>
